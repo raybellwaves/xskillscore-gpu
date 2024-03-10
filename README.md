@@ -7,10 +7,15 @@ WIP: Run [xskillscore](https://github.com/xarray-contrib/xskillscore) on a GPU.
 ![alt text](xs-gpu-meme.png "Title")
 
 Ideally things work with zero code changes up the stack:
- - import numpy as np; gives you speed up for `numpy` operations if you have a GPU.
+ - import numpy as np; gives you speed up for `numpy` operations if you have a GPU. Probably with some fallback to CPU if memory issues etc.
  - You can currently dispatch in `numpy` if you pass a cupy array (`np.absolute(cupy_array_forecasts, cupy_array_observations)`) to `numpy` functions which is a step towards zero-code changes.
- - xarray has 
+ - xarray has https://github.com/xarray-contrib/cupy-xarray but I would say it needs to TLC.
 
+A simple way to proceed here is custom code which hopefully demonstrates a speed up using a GPU:
+ - for loop using a numpy functions (CPU)
+ - `xr.appy_unfunc` which has some acceleration build in and fit my data structure (CPU)
+ - for loop using a cupy functions (GPU)
+ - vectorized and parallel version using cupy and/or numba?
 
 ## Why?
 
@@ -25,7 +30,7 @@ A generic library to calculate skillscores but mostly for for weather/climate fo
 ### How does xskillscore work?
 
 xskillscore is mostly just a ufunc library that contains ufuncs that
-are passed to [ `xarray.apply_ufunc`](https://docs.xarray.dev/en/stable/generated/xarray.apply_ufunc.html).
+are passed to [`xarray.apply_ufunc`](https://docs.xarray.dev/en/stable/generated/xarray.apply_ufunc.html).
 
 Functions are written using `numpy` for `xarray.Dataset`'s and there
 is acceleration built into xarray using `dask` and `numba`.
