@@ -4,6 +4,7 @@ WIP: Run [xskillscore](https://github.com/xarray-contrib/xskillscore) on a GPU.
 
 ## How to implement
 
+![alt text](xs-gpu-meme.png "Title")
 
 Ideally things work with zero code changes up the stack:
  - import numpy as np; gives you speed up for `numpy` operations if you have a GPU.
