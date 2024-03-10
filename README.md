@@ -2,6 +2,15 @@
 
 WIP: Run [xskillscore](https://github.com/xarray-contrib/xskillscore) on a GPU.
 
+## How to implement
+
+
+Ideally things work with zero code changes up the stack:
+ - import numpy as np; gives you speed up for `numpy` operations if you have a GPU.
+ - You can currently dispatch in `numpy` if you pass a cupy array (`np.absolute(cupy_array_forecasts, cupy_array_observations)`) to `numpy` functions which is a step towards zero-code changes.
+ - xarray has 
+
+
 ## Why?
 
 Goal of zero code changes if you are an xskillscore user and you have a GPU.
@@ -34,12 +43,5 @@ for i lat in range(0, len(latitudes)):
 These for loops are essentially an embaraissingly parallel problem as they can be run independently.
 This is what `xarray.apply_ufunc` does.
 
-## How to implement
-
-
-Ideally things work with zero code changes up the stack:
- - import numpy as np; gives you speed up for `numpy` operations if you have a GPU.
- - You can currently dispatch in `numpy` if you pass a cupy array (`np.absolute(cupy_array_forecasts, cupy_array_observations)`) to `numpy` functions which is a step towards zero-code changes.
- - xarray has 
 
 
