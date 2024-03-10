@@ -1,6 +1,10 @@
 # xskillscore-gpu
 
-WIP: Run xskillscore on a GPU
+WIP: Run [xskillscore](https://github.com/xarray-contrib/xskillscore) on a GPU.
+
+# Why?
+
+Goal of zero code changes if you are an xskillscore user and you have a GPU.
 
 ## Background
 
