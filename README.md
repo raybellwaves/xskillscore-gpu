@@ -36,7 +36,6 @@ This is what `xarray.apply_ufunc` does.
 
 ## How to implement
 
-![Alt text]([https://assets.digitalocean.com/articles/alligator/boo.svg](https://imgflip.com/i/8iqvkz) "how to implement")
 
 Ideally things work with zero code changes up the stack:
  - import numpy as np; gives you speed up for `numpy` operations if you have a GPU.
