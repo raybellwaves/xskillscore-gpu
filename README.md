@@ -17,6 +17,20 @@ A simple way to proceed here is custom code which hopefully demonstrates a speed
  - for loop using a cupy functions (GPU)
  - vectorized and parallel version using cupy and/or numba?
 
+### Setup
+
+AWS EC2 machine g5.2xlarge with specs:
+ - A10 (Compute Capability 8.6), 24 Gb GPU memory
+ - 8 virtual CPUs, 32 Gb memory
+
+AMI: Deep Learning AMI GPU PyTorch 2.1.0 (Ubuntu 20.04)
+
+Edit `~.condarc` from `channel_priority: strict` to `channel_priority: flexible`
+
+
+
+
+
 ## Why?
 
 Goal of zero code changes if you are an xskillscore user and you have a GPU.
